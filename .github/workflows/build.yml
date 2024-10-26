@@ -1,0 +1,33 @@
+name: Build AMI Packer
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ami-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # - name: Setup Environment Variables
+      #   run: |
+      #     touch .env
+      #     echo "MYSQL_DATABASE=cloud" >> .env
+      #     echo "MYSQL_PASSWORD=Keshni@2198" >> .env
+      #     echo "MYSQL_USER=root" >> .env
+      #     echo "MYSQL_HOST=localhost" >> .env
+
+      - name: Create Zip Archive
+        run: |
+          zip -r webapp.zip .
+
+      - name: Build AMI
+        run: |
+          packer init ./template.pkr.hcl
+          packer fmt ./template.pkr.hcl
+          packer validate ./template.pkr.hcl
+          packer build ./template.pkr.hcl
