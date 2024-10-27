@@ -44,7 +44,7 @@ source "amazon-ebs" "csye6225-ami" {
     max_attempts  = 50
   }
 
-  ami_users     = var.ami_users
+  ami_users     = [var.ami_users]
   instance_type = "t2.micro"                 # Instance type to be used for the build
   source_ami    = var.source_ami          # The source AMI from which to create the new AMI
   ssh_username  = var.ssh_username                  # SSH username for the instance
