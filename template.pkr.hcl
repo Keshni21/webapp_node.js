@@ -28,9 +28,14 @@ variable "subnet_id" {
   default = ""
 }
 
+variable "ami_users" {
+  type = string
+  default = ""
+}
+
 # Source block to define the image to be built
 source "amazon-ebs" "csye6225-ami" {
-  region          = "aws_region"
+  region          = var.aws_region
   ami_name        = "csye6225-ami-${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "CSYE6225 Assignment-04"
 
@@ -39,14 +44,11 @@ source "amazon-ebs" "csye6225-ami" {
     max_attempts  = 50
   }
 
-  ami_users = [
-   "${var.ami_users}"
-  ]
-
+  ami_users     = var.ami_users
   instance_type = "t2.micro"                 # Instance type to be used for the build
-  source_ami    = "${var.source_ami}"          # The source AMI from which to create the new AMI
-  ssh_username  = "${var.ssh_username}"                  # SSH username for the instance
-  subnet_id     = "${var.subnet_id}"           # Subnet ID for network configuration
+  source_ami    = var.source_ami          # The source AMI from which to create the new AMI
+  ssh_username  = var.ssh_username                  # SSH username for the instance
+  subnet_id     = var.subnet_id            # Subnet ID for network configuration
 
   # Block to define the EBS volume settings
   launch_block_device_mappings {
