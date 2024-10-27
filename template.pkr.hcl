@@ -24,6 +24,7 @@ source "amazon-ebs" "csye6225-ami" {
   source_ami    = "ami-050cd642fd83388e4"             # The source AMI from which to create the new AMI
   ssh_username  = "ubuntu"                               # SSH username for the instance
   subnet_id     = "subnet-0b76598cd564529c4"            # Subnet ID for network configuration
+  profile       = "dev"
 
   # Block to define the EBS volume settings
   launch_block_device_mappings {
