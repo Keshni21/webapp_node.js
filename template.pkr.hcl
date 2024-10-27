@@ -10,7 +10,7 @@ packer {
 # Variables to be used in the template
 variable "aws_region" {
   type    = string
-  default = "us-east-2"
+  default = ""
 }
 
 variable "source_ami" {
