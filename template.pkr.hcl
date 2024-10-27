@@ -15,22 +15,22 @@ variable "aws_region" {
 
 variable "source_ami" {
   type    = string
-  default = ""
+  default = " "
 }
 
 variable "ssh_username" {
   type    = string
-  default = "ubuntu"
+  default = " "
 }
 
 variable "subnet_id" {
   type    = string
-  default = ""
+  default = " "
 }
 
 variable "ami_users" {
   type = string
-  default = ""
+  default = " "
 }
 
 # Source block to define the image to be built
