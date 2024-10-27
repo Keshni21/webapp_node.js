@@ -34,7 +34,7 @@ source "amazon-ebs" "csye6225-ami" {
   }
 }
 
-# Build block where the sources and provisioners are defined
+# Build block where the sources and provisioners are defined #
 build {
   sources = [
     "source.amazon-ebs.csye6225-ami" # Reference to the source defined above
