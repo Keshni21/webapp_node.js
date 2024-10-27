@@ -1,7 +1,7 @@
 ---
 name: Build AMI Packer
 on:
-  pull-request:
+  pull_request:
     branches:
       - main
 jobs:
