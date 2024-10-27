@@ -47,7 +47,7 @@ source "amazon-ebs" "csye6225-ami" {
   ami_users     = [var.ami_users]
   instance_type = "t2.micro"                 # Instance type to be used for the build
   source_ami    = var.source_ami          # The source AMI from which to create the new AMI
-  ssh_username  = var.ssh_username                  # SSH username for the instance
+  ssh_username  = var.ssh_username         # SSH username for the instance
   subnet_id     = var.subnet_id            # Subnet ID for network configuration
 
   # Block to define the EBS volume settings
