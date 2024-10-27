@@ -31,8 +31,7 @@ jobs:
           packer fmt ./template.pkr.hcl
           packer validate ./template.pkr.hcl
           packer build ./template.pkr.hcl
-          
-       env:
+        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           PKR_VAR_aws_region: "${{ secrets.AWS_REGION }}"
@@ -41,3 +40,7 @@ jobs:
           PKR_VAR_ssh_username: "${{ secrets.SSH_USERNAME }}"
           PKR_VAR_aws_profile: "${{ secrets.aws_profile }}"
           PKR_VAR_ami_users: "${{ secrets.ami_users }}"
+
+
+
+
