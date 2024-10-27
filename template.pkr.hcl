@@ -34,7 +34,7 @@ variable "ami_users" {
 }
 
 # Source block to define the image to be built
-source "amazon-ebs" "csye6225-ami" {
+  source "amazon-ebs" "csye6225-ami" {
   region          = var.aws_region
   ami_name        = "csye6225-ami-${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "CSYE6225 Assignment-04"
@@ -46,7 +46,7 @@ source "amazon-ebs" "csye6225-ami" {
 
   ami_users     = [var.ami_users]
   instance_type = "t2.micro"                 # Instance type to be used for the build
-  source_ami    = var.source_ami          # The source AMI from which to create the new AMI
+  source_ami    = "ami-050cd642fd83388e4"         # The source AMI from which to create the new AMI
   ssh_username  = var.ssh_username                  # SSH username for the instance
   subnet_id     = var.subnet_id            # Subnet ID for network configuration
 
