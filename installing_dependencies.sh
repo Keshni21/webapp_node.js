@@ -16,6 +16,7 @@ sudo apt-get install -y unzip
 # Note: Use NodeSource for specific Node.js versions if needed.
 # curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 # sudo apt-get install -y nodejs
+#
 sudo apt-get install -y nodejs npm
 
 # Install MySQL server
