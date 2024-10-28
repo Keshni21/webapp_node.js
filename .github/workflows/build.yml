@@ -35,9 +35,9 @@ jobs:
         env: #this is .env
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          PKR_VAR_aws_region: ${{ secrets.AWS_REGION }}
-          PKR_VAR_source_ami: ${{ secrets.SOURCE_AMI }}
-          PKR_VAR_subnet_id: ${{ secrets.SUBNET_ID }}
-          PKR_VAR_ssh_username: ${{ secrets.SSH_USERNAME }}
-          PKR_VAR_aws_profile: ${{ secrets.aws_profile }}
-          PKR_VAR_ami_users: ${{ secrets.ami_users }}
+          PKR_VAR_aws_region: "${{ secrets.AWS_REGION }}"
+          PKR_VAR_source_ami: "${{ secrets.SOURCE_AMI }}"
+          PKR_VAR_subnet_id: "${{ secrets.SUBNET_ID }}"
+          PKR_VAR_ssh_username: "${{ secrets.SSH_USERNAME }}"
+          PKR_VAR_aws_profile: "${{ secrets.aws_profile }}"
+          PKR_VAR_ami_users: "${{ secrets.ami_users }}"
