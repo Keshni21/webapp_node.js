@@ -14,6 +14,9 @@ source "amazon-ebs" "csye6225-ami" {
   ami_name        = "csye6225-ami-${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "CSYE6225 Assignment-04"
 
+  #aws_access_key_id = AKIAZKDIDA4OUEIL74BQ
+  #aws_secret_access_key = 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
+
   aws_polling {
     delay_seconds = 120
     max_attempts  = 50
@@ -45,8 +48,8 @@ build {
    source      = "webapp.zip"  # Path to the web application zip file
   destination = "~/"  # Destination path on the instance
   }
-
-   #Provisioner to run shell commands from an external script
+    
+  #Provisioner to run shell commands from an external script
   provisioner "shell" {
    script = "installing_dependencies.sh"  # Reference to the external shell script for setup tasks
   }
