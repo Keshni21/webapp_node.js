@@ -49,7 +49,7 @@ build {
   destination = "~/"  # Destination path on the instance
   }
     
-   #Provisioner to run shell commands from an external script
+  #Provisioner to run shell commands from an external script
   provisioner "shell" {
    script = "installing_dependencies.sh"  # Reference to the external shell script for setup tasks
   }
