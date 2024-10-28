@@ -41,4 +41,3 @@ jobs:
           PKR_VAR_ssh_username: "${{ secrets.SSH_USERNAME }}"
           PKR_VAR_aws_profile: "${{ secrets.aws_profile }}"
           PKR_VAR_ami_users: "${{ secrets.ami_users }}"
-
