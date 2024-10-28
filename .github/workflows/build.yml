@@ -20,12 +20,12 @@ jobs:
       - name: Create Zip Archive
         run: |
           zip -r webapp.zip .
-      # - name: AWS Configure
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-      #     aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-      #     aws-region: us-east-2
+      - name: AWS Configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: us-east-2
       - name: Build AMI
         run: |
           packer init ./template.pkr.hcl
@@ -33,7 +33,6 @@ jobs:
           packer validate ./template.pkr.hcl
           packer build ./template.pkr.hcl
         env: #this is .env
-<<<<<<< HEAD
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           PKR_VAR_aws_region: "${{ secrets.AWS_REGION }}"
@@ -42,15 +41,3 @@ jobs:
           PKR_VAR_ssh_username: "${{ secrets.SSH_USERNAME }}"
           PKR_VAR_aws_profile: "${{ secrets.aws_profile }}"
           PKR_VAR_ami_users: "${{ secrets.ami_users }}"
-=======
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID != '' }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY != '' }}
-          PKR_VAR_aws_region: ${{ secrets.AWS_REGION }}
-          PKR_VAR_source_ami: ${{ secrets.SOURCE_AMI }}
-          PKR_VAR_subnet_id: ${{ secrets.SUBNET_ID }}
-          PKR_VAR_ssh_username: ${{ secrets.SSH_USERNAME }}
-          PKR_VAR_aws_profile: ${{ secrets.aws_profile }}
-          PKR_VAR_ami_users: ${{ secrets.ami_users }}
-
-          
->>>>>>> cba7f6b9a296216a81ddc2ff0bfe939a26385f2c
