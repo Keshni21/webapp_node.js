@@ -35,9 +35,6 @@ let dbConnected = false;
 
 
 
-
-
-
 const checkConnection = async () => {
   try {
     await sequelize.authenticate();

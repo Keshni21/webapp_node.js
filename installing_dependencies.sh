@@ -47,6 +47,19 @@ cd /home/ubuntu/webapp || { echo "Failed to navigate to webapp directory"; exit 
 # Install the npm dependencies for the Node.js application
 npm install
 
+sudo bash -c 'cat > /home/ubuntu/webapp/.env <<EOF
+devUsername =  keshni21    
+devPassword =  Keshni@2198
+devDB = database_cloud       
+devHost =localhost                     
+
+
+PORT=8080                             
+
+
+EOF'
+
+
 # Create a systemd service file for the Node.js application
 sudo bash -c 'cat > /etc/systemd/system/nodeapp.service <<EOF
 [Unit]
